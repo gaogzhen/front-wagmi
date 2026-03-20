@@ -1,12 +1,15 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Geist } from 'next/font/google'
 import { headers } from 'next/headers'
 import { type ReactNode } from 'react'
 import { cookieToInitialState } from 'wagmi'
 
 import { getConfig } from '../wagmi'
 import { Providers } from './providers'
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +24,7 @@ export default async function RootLayout(props: { children: ReactNode }) {
     (await headers()).get('cookie'),
   )
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", geist.variable)}>
       <body className={inter.className}>
         <Providers initialState={initialState}>{props.children}</Providers>
       </body>
