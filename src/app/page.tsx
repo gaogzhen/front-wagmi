@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import {
-  useConnection,
+  useAccount,
   useConnect,
   useDisconnect,
   useChainId,
@@ -18,9 +18,9 @@ import Counter_ABI from "@/contracts/Counter.json";
 const COUNTER_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
 export default function APP() {
-  const { address, isConnected } = useConnection();
-  const { mutate: connectMetamask } = useConnect();
-  const disconnect = useDisconnect();
+  const { address, isConnected } = useAccount();
+  const { connect: connectMetamask } = useConnect();
+  const { disconnect } = useDisconnect();
   const chainId = useChainId();
   const chains = useChains();
   const currentChain = chains.find((chain) => chain.id === chainId);
@@ -42,7 +42,7 @@ export default function APP() {
     isSuccess,
     isError,
     error,
-    mutate: writeContract,
+    writeContract,
   } = useWriteContract();
 
   // 增加计数
@@ -114,7 +114,7 @@ export default function APP() {
               )}
             </div>
             <button
-              onClick={() => disconnect.mutate()}
+              onClick={() => disconnect()}
               className="w-full bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition-colors"
             >
               断开连接

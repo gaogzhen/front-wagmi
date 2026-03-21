@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/dev/types/**/*.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/app/school/schoolMappingList/config.ts.4"
   ],
   "exclude": ["node_modules"]
 }

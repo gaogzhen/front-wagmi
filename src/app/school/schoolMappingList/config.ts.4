@@ -1,0 +1,20 @@
+// app/school/schoolMappingList/config.ts
+import { getDefaultConfig } from "@rainbow-me/rainbowkit";
+import { mainnet, sepolia, hardhat } from "wagmi/chains";
+import { http } from "wagmi";
+
+// 确保环境变量名与 .env.local 中一致
+const projectId = process.env.NEXT_PUBLIC_PROJECT_ID!;
+
+export const config = getDefaultConfig({
+  appName: "Student Management",
+  projectId,
+  chains: [mainnet, sepolia, hardhat] as const,
+  transports: {
+    [mainnet.id]: http(),
+    [sepolia.id]: http(),
+    [hardhat.id]: http("http://127.0.0.1:8545"),
+  },
+  ...({ tokens: { [hardhat.id]: [] } } as any),
+  ssr: true,
+});
