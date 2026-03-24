@@ -20,6 +20,7 @@
     "clsx": "^2.1.1",
     "ethers": "^6.16.0",
     "lucide-react": "^0.577.0",
+    "merkletreejs": "^0.6.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
