@@ -10,14 +10,7 @@ import {
 } from "wagmi";
 
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import {
-  parseAbi,
-  encodePacked,
-  keccak256,
-  toBytes,
-  Address,
-  parseEther,
-} from "viem";
+import { keccak256, toBytes, Address, parseEther } from "viem";
 import { MerkleTree } from "merkletreejs";
 
 import WhitelistNFT_ABI from "@/contracts/WhitelistNFT.json";
